@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <title>Rocketseat - React.js - Fundamentos</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+            rel="stylesheet">
+        <title>Rocketseat - React.js - Fundamentos</title>
 
-    <style type="text/tailwindcss">
+        <style type="text/tailwindcss">
         @theme {
             --text: #EBEBEB;
             --text-secondary: #6B6B6B;
@@ -34,22 +35,55 @@
             --font-sans: 'Rubik', sans-serif;
         }
     </style>
-</head>
+    </head>
 
-<body className="text-(--text) font-(--font-sans)">
-    <div id="root"></div>
+    <body className="text-(--text) font-(--font-sans)">
+        <div id="root"></div>
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <script
+            src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script
+            src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script type="text/babel">
+        <script type="text/babel">
         const textVariants = {
             default: 'text-xl',
             muted: 'text-xl text-(--text-secondary)',
             heading: 'text-2xl',
             blast: 'text-3xl'
+        }
+
+        const buttonVariants = {
+            default: 'bg-(--background)',
+            primary: 'bg-(--primary)'
+        }
+
+        function Button({
+            variant = 'default',
+            className,
+            children,
+            ...props
+        }) {
+            return (
+                <Text
+                    as="button"
+                    variant="heading"
+                    className={`
+                    flex items-center justify-center rounded-xl
+                    p-3 cursor-pointer text-(--text) 
+                    bg-linear-(--gradient) 
+                    hover:bg-linear-(--gradient-hover)
+                    shadow-(--shadow)
+                    ${buttonVariants[variant]}
+                    ${className ? className : ''}
+                    `}
+                    {...props}
+                >
+                    {children}
+                </Text>
+            )
         }
 
         function Text({
@@ -62,7 +96,7 @@
             return React.createElement(
                 as,
                 {
-                    className: `${textVariants[variant]} ${className}`,
+                    className: `${textVariants[variant]} ${className ? className : ''}`,
                     ...props
                 },
                 children
@@ -78,6 +112,6 @@
 
         ReactDOM.createRoot(document.getElementById('root')).render(<App />)
     </script>
-</body>
+    </body>
 
 </html>
