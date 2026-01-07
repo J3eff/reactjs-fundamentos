@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <title>Rocketseat - React.js - Fundamentos</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+            rel="stylesheet">
+        <title>Rocketseat - React.js - Fundamentos</title>
 
-    <style type="text/tailwindcss">
+        <style type="text/tailwindcss">
         @theme {
             --text: #EBEBEB;
             --text-secondary: #6B6B6B;
@@ -34,17 +35,19 @@
             --font-sans: 'Rubik', sans-serif;
         }
     </style>
-</head>
+    </head>
 
-<body class="text-(--text) font-(--font-sans)">
-    <div id="root"></div>
+    <body class="text-(--text) font-(--font-sans)">
+        <div id="root"></div>
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <script
+            src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script
+            src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script type="text/babel">
+        <script type="text/babel">
         const textVariants = {
             default: 'text-xl',
             muted: 'text-xl text-(--text-secondary)',
@@ -115,7 +118,7 @@
             )
         }
 
-        function CalculatorDisplay({ operation = ' 1 + 1', result = '2' }) {
+        function CalculatorDisplay({ operation = '1 + 1', result = '2' }) {
             return (
             <div className={`
                         flex flex-col gap-2 px-[1.375rem]
@@ -144,7 +147,48 @@
                     flex flex-col gap-[1.625rem] w-[22.25rem]    
                     pt-14 px-8 pb-8 
                 `}>
-                    <CalculatorDisplay />
+                    <CalculatorDisplay operation="1 + 1" result="2" />
+
+                    <div className="flex flex-col gap-3">
+                        <div className="flex gap-3">
+                            <Button className="w-16 h-16">CE</Button>
+                            <Button className="flex-1 w-16">C</Button>
+                            <Button className="w-16 h-16" variant="primary">
+                                /
+                            </Button>
+                        </div>
+                        <div className="flex gap-3">
+                            <Button className="w-16 h-16">7</Button>
+                            <Button className="w-16 h-16">8</Button>
+                            <Button className="w-16 h-16">9</Button>                            
+                            <Button className="w-16 h-16" variant="primary">
+                                *
+                            </Button>
+                        </div>
+                        <div className="flex gap-3">
+                            <Button className="w-16 h-16">4</Button>
+                            <Button className="w-16 h-16">5</Button>
+                            <Button className="w-16 h-16">6</Button>                            
+                            <Button className="w-16 h-16" variant="primary">
+                                -
+                            </Button>
+                        </div>
+                        <div className="flex gap-3">
+                            <Button className="w-16 h-16">1</Button>
+                            <Button className="w-16 h-16">2</Button>
+                            <Button className="w-16 h-16">3</Button>                            
+                            <Button className="w-16 h-16" variant="primary">
+                                +
+                            </Button>
+                        </div>
+                        <div className="flex gap-3">
+                            <Button className="flex-1 w-16">0</Button>
+                            <Button className="w-16 h-16">,</Button>
+                            <Button className="w-16 h-16" variant="primary">
+                                =
+                            </Button>
+                        </div>
+                    </div>
                 </Card>
             )
         }
@@ -159,6 +203,6 @@
 
         ReactDOM.createRoot(document.getElementById('root')).render(<App />)
     </script>
-</body>
+    </body>
 
 </html>
