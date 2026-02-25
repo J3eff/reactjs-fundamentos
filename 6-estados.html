@@ -26,11 +26,17 @@
                         <button onClick={() => setCounter(10)}> 
                             Atualizar
                         </button>
-                         <button 
+                        <button 
                             type="button" 
                             onClick={() => setCounter((prevValue) => prevValue + 1)}
                         >
                             Incrementar
+                        </button>
+                        <button 
+                            type="button" 
+                            onClick={() => setCounter((prevValue) => prevValue - 1)}
+                        >
+                            Decrementar
                         </button>
                     </>
                 )
